@@ -11,8 +11,16 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', function() {
+    return View::make('index');
+});
 
-Route::get('laravel', function () {
-    return view('welcome');
+Route::get('/views/{component}/{name}', function($component, $name) {
+  $viewPath = $component . '/' . $name;
+
+  if (View::exists($viewPath)) {
+    return View::make($viewPath);
+  }
+
+  App::abort(404);
 });

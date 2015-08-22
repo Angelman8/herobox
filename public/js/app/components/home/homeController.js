@@ -1,4 +1,4 @@
-function MainController($scope) {
+function HomeController($scope) {
   $scope.tests = [
     {name: 'Galen'},
     {name: 'Marshall'},
