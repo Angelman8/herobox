@@ -1,0 +1,20 @@
+{
+  "name": "herobox",
+  "version": "0.1",
+  "description": "Herobox is a character creation tool to allow budding superheroes and supervillains to keep track of their progress in their quest to save the world (or destroy it).",
+  "authors": [
+    "Galen Budd (contact@galenbudd.com)"
+  ],
+  "license": "MIT",
+  "homepage": "http://herobox.galenbudd.com/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.4"
+  }
+}
