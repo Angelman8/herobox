@@ -1,26 +1,23 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
+//Entry point to Angular app
 Route::get('/', function() {
     return View::make('index');
 });
 
+//Reroute "view" requests to the Views folder in the right component
 Route::get('/views/{component}/{name}', function($component, $name) {
-  $viewPath = $component . '/' . $name;
+    $viewPath = $component . '/' . $name;
 
-  if (View::exists($viewPath)) {
-    return View::make($viewPath);
-  }
+    if (View::exists($viewPath)) {
+        return View::make($viewPath);
+    }
 
   App::abort(404);
 });
+
+//Reroute any other path not found back to Angular
+Route::any('{path?}', function()
+{
+    return view("index");
+})->where("path", ".+");
