@@ -5,6 +5,12 @@ Route::get('/', function() {
     return View::make('index');
 });
 
+Route::get('test/{id?}', 'TestController@read');
+
+Route::group(['prefix' => 'api/v1'], function () {
+    Route::resource('characters', 'Api\V1\Characters');
+});
+
 //Reroute "view" requests to the Views folder in the right component
 Route::get('/views/{component}/{name}', function($component, $name) {
     $viewPath = $component . '/' . $name;
